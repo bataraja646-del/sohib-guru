@@ -64,10 +64,6 @@
   <script src="data/data.js"></script>
 
 <script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
-
 const data = sohibGuru;
 
 const container = document.createElement("div");
@@ -78,7 +74,7 @@ data.kelas.forEach(k => {
 
   btn.onclick = function() {
     localStorage.setItem("kelas", k.nama);
-  window.location.href = "semester.html";
+    alert("Kelas dipilih: " + k.nama);
   };
 
   container.appendChild(btn);
