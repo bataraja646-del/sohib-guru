@@ -1,40 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
   <title>Sohib Guru</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: linear-gradient(#0a2540, #0d3b66);
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      margin-top: 30px;
+      color: #00ffcc;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .card {
+      background: #123456;
+      padding: 20px;
+      border-radius: 15px;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
-<body style="text-align:center; font-family:sans-serif;">
+<body>
 
-<h1>SOHIB GURU</h1>
+  <h1>SOHIB GURU</h1>
 
-<br><br>
+  <div class="menu">
+    <a href="modul.html">
+      <div class="card">📘 Modul Ajar</div>
+    </a>
 
-<a href="modul.html">
-  <button style="padding:15px; width:80%; margin:10px;">
-    📘 Modul Ajar
-  </button>
-</a>
+    <a href="lkpd-sudut.html">
+      <div class="card">📝 LKPD Sudut</div>
+    </a>
 
-<a href="lkpd-sudut.html">
-  <button style="padding:15px; width:80%; margin:10px;">
-    📝 LKPD / Soal
-  </button>
-</a>
+    <a href="materi-sudut.html">
+      <div class="card">📚 Materi</div>
+    </a>
 
-<a href="materi-sudut.html">
-  <button style="padding:15px; width:80%; margin:10px;">
-    📚 Materi
-  </button>
-</a>
+    <a href="#">
+      <div class="card">📊 Penilaian</div>
+    </a>
+  </div>
 
-<a href="lkpd-sudut.html">
-  <button style="padding:15px; width:80%; margin:10px;">
-    📊 Penilaian
-  </button>
-</a>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+    }
+  </script>
 
 </body>
 </html>
