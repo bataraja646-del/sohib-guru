@@ -1,63 +1,40 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sohib Guru</title>
-
-  <link rel="manifest" href="manifest.json">
-
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: linear-gradient(to bottom, #001f3f, #003366);
-      color: white;
-      text-align: center;
-    }
-
-    h1 {
-      margin-top: 40px;
-      color: #00ffcc;
-    }
-
-    .menu {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      padding: 20px;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .card {
-      background: #0d2a4d;
-      padding: 20px;
-      border-radius: 15px;
-      color: white;
-      font-size: 16px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body style="text-align:center; font-family:sans-serif;">
 
 <h1>SOHIB GURU</h1>
 
-<div class="menu">
-  <a href="modul.html" class="card">📘 Modul Ajar</a>
-  <a href="lkpd-sudut.html" class="card">📝 LKPD Sudut</a>
-  <a href="materi-sudut.html" class="card">📚 Materi</a>
-  <a href="pengukuran.html" class="card">📊 Penilaian</a>
-</div>
+<br><br>
 
-<script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
-</script>
+<a href="modul.html">
+  <button style="padding:15px; width:80%; margin:10px;">
+    📘 Modul Ajar
+  </button>
+</a>
+
+<a href="lkpd-sudut.html">
+  <button style="padding:15px; width:80%; margin:10px;">
+    📝 LKPD / Soal
+  </button>
+</a>
+
+<a href="materi-sudut.html">
+  <button style="padding:15px; width:80%; margin:10px;">
+    📚 Materi
+  </button>
+</a>
+
+<a href="lkpd-sudut.html">
+  <button style="padding:15px; width:80%; margin:10px;">
+    📊 Penilaian
+  </button>
+</a>
 
 </body>
 </html>
