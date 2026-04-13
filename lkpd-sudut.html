@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LKPD Sudut</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+    }
+    .soal {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>📘 LKPD Sudut</h1>
+
+<div class="soal">
+  <p>1. Sudut yang besarnya kurang dari 90° disebut?</p>
+  <button onclick="cek('a')">Sudut Lancip</button>
+  <button onclick="cek('b')">Sudut Tumpul</button>
+</div>
+
+<div class="soal">
+  <p>2. Sudut siku-siku besarnya?</p>
+  <button onclick="cek('a')">90°</button>
+  <button onclick="cek('b')">180°</button>
+</div>
+
+<script>
+function cek(jawaban) {
+  if (jawaban === 'a') {
+    alert("Benar 👍");
+  } else {
+    alert("Salah ❌");
+  }
+}
+</script>
+
+</body>
+</html>
