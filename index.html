@@ -37,8 +37,8 @@
       font-size: 14px;
     }
 
-    .kelas-container {
-      margin-top: 15px;
+    #konten {
+      margin-top: 20px;
     }
 
     button {
@@ -64,28 +64,65 @@
   <div class="card">📊 Penilaian</div>
 </div>
 
-<h2>Pilih Kelas</h2>
-
-<div class="kelas-container" id="kelas"></div>
+<h2 id="judul">Pilih Kelas</h2>
+<div id="konten"></div>
 
 <!-- DATA -->
 <script src="data/data.js"></script>
 
 <script>
 const data = sohibGuru;
-const container = document.getElementById("kelas");
+const konten = document.getElementById("konten");
+const judul = document.getElementById("judul");
 
-data.kelas.forEach(k => {
-  const btn = document.createElement("button");
-  btn.innerText = k.nama;
 
-  btn.onclick = function() {
-    localStorage.setItem("kelas", k.nama);
-    window.location.href = "semester.html";
-  };
+// ========================
+// RENDER KELAS
+// ========================
+function renderKelas() {
+  konten.innerHTML = "";
+  judul.innerText = "Pilih Kelas";
 
-  container.appendChild(btn);
-});
+  data.kelas.forEach(k => {
+    const btn = document.createElement("button");
+    btn.innerText = k.nama;
+
+    btn.onclick = function() {
+      localStorage.setItem("kelas", k.nama);
+      renderSemester();
+    };
+
+    konten.appendChild(btn);
+  });
+}
+
+
+// ========================
+// RENDER SEMESTER
+// ========================
+function renderSemester() {
+  konten.innerHTML = "";
+  judul.innerText = "Pilih Semester";
+
+  ["Ganjil", "Genap"].forEach(s => {
+    const btn = document.createElement("button");
+    btn.innerText = "Semester " + s;
+
+    btn.onclick = function() {
+      localStorage.setItem("semester", s);
+      alert("Next: Mapel (Step berikutnya)");
+    };
+
+    konten.appendChild(btn);
+  });
+}
+
+
+// ========================
+// INIT
+// ========================
+renderKelas();
+
 </script>
 
 </body>
