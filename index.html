@@ -61,14 +61,13 @@
     </a>
   </div>
 
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js")
-    }
-  </script>
-<script src="data/data.js"></script>
+  <script src="data/data.js"></script>
 
 <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+
 const data = sohibGuru;
 
 const container = document.createElement("div");
@@ -76,11 +75,18 @@ const container = document.createElement("div");
 data.kelas.forEach(k => {
   const btn = document.createElement("button");
   btn.innerText = k.nama;
+
+  btn.onclick = function() {
+    localStorage.setItem("kelas", k.nama);
+    alert("Pilih " + k.nama);
+  };
+
   container.appendChild(btn);
   container.appendChild(document.createElement("br"));
 });
 
 document.body.appendChild(container);
 </script>
+  
 </body>
 </html>
