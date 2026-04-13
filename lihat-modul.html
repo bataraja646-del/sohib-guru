@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modul Saya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family:Arial; text-align:center; padding:20px;">
+
+  <h1>📁 Modul Saya</h1>
+
+  <div id="hasil"></div>
+
+  <br>
+  <button onclick="window.location.href='index.html'"
+    style="padding:10px 20px; background:red; color:white; border:none; border-radius:8px;">
+    ⬅ Kembali
+  </button>
+
+  <script>
+    function tampilkanModul() {
+      let data = localStorage.getItem("daftar_modul");
+
+      if (data) {
+        let daftar = JSON.parse(data);
+        let tampil = "";
+
+        daftar.forEach((modul, index) => {
+          tampil += `
+            <div style="background:#eee; padding:15px; margin:10px; border-radius:10px;">
+              <h3>${index + 1}. ${modul.topik}</h3>
+              <p><b>Tujuan:</b> ${modul.tujuan}</p>
+              <p><b>Materi:</b> ${modul.materi}</p>
+
+              <button onclick="editModul(${index})"
+                style="background:orange; color:white; border:none; padding:8px 15px; border-radius:6px;">
+                ✏ Edit
+              </button>
+
+              <button onclick="hapusModul(${index})"
+                style="background:red; color:white; border:none; padding:8px 15px; border-radius:6px;">
+                🗑 Hapus
+              </button>
+            </div>
+          `;
+        });
+
+        document.getElementById("hasil").innerHTML = tampil;
+
+      } else {
+        document.getElementById("hasil").innerHTML = "<p>Belum ada modul</p>";
+      }
+    }
+
+    function hapusModul(index) {
+      let data = JSON.parse(localStorage.getItem("daftar_modul"));
+      data.splice(index, 1);
+      localStorage.setItem("daftar_modul", JSON.stringify(data));
+      tampilkanModul();
+    }
+
+    function editModul(index) {
+      let data = JSON.parse(localStorage.getItem("daftar_modul"));
+      let modul = data[index];
+
+      let topikBaru = prompt("Edit Topik:", modul.topik);
+      let tujuanBaru = prompt("Edit Tujuan:", modul.tujuan);
+      let materiBaru = prompt("Edit Materi:", modul.materi);
+
+      if (topikBaru !== null && tujuanBaru !== null && materiBaru !== null) {
+        data[index] = {
+          topik: topikBaru,
+          tujuan: tujuanBaru,
+          materi: materiBaru
+        };
+
+        localStorage.setItem("daftar_modul", JSON.stringify(data));
+        alert("Modul berhasil diupdate!");
+        tampilkanModul();
+      }
+    }
+
+    tampilkanModul();
+  </script>
+
+</body>
+</html>

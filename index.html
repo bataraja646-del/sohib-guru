@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Sohib Guru</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a192f">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0a192f, #020c1b);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #00ffcc;
+      font-size: 32px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #112240;
+      padding: 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+    }
+
+    .card:hover {
+      background: #233554;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>SOHIB GURU</h1>
+    <p>Platform Administrasi Guru Modern</p>
+
+    <div class="grid">
+      <a href="modul.html" class="card">📘 Modul Ajar</a>
+      <a href="#" class="card">❓ Soal & Kisi</a>
+      <a href="#" class="card">📊 Penilaian</a>
+      <a href="#" class="card">📺 Media Ajar</a>
+    </div>
+
+    <footer>
+      © 2026 Sohib Guru
+    </footer>
+  </div>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker aktif"))
+        .catch(err => console.log("SW gagal:", err));
+    }
+  </script>
+
+</body>
+</html>

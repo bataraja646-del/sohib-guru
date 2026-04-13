@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Buat Modul</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family:Arial; text-align:center; padding:20px;">
+
+  <h1>Buat Modul</h1>
+
+  <input id="topik" placeholder="Topik"><br><br>
+  <input id="tujuan" placeholder="Tujuan"><br><br>
+  <textarea id="materi" placeholder="Materi"></textarea><br><br>
+
+  <button onclick="simpanModul()">💾 Simpan Modul</button>
+
+  <script>
+    function simpanModul() {
+      let topik = document.getElementById("topik").value;
+      let tujuan = document.getElementById("tujuan").value;
+      let materi = document.getElementById("materi").value;
+
+      let modulBaru = {
+        topik: topik,
+        tujuan: tujuan,
+        materi: materi
+      };
+
+      let dataLama = localStorage.getItem("daftar_modul");
+      let daftar = [];
+
+      if (dataLama) {
+        daftar = JSON.parse(dataLama);
+      }
+
+      daftar.push(modulBaru);
+
+      localStorage.setItem("daftar_modul", JSON.stringify(daftar));
+
+      alert("Modul ditambahkan!");
+    }
+  </script>
+
+</body>
+</html>
