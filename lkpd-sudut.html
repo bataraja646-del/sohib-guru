@@ -7,12 +7,14 @@
 
 <h1>📘 LKPD Sudut</h1>
 
+<!-- SOAL 1 -->
 <div style="background:#f2f2f2; padding:20px; border-radius:10px; margin-bottom:20px;">
   <p>1. Sudut yang besarnya kurang dari 90° disebut?</p>
   <button onclick="jawab(true)">Sudut Lancip</button>
   <button onclick="jawab(false)">Sudut Tumpul</button>
 </div>
 
+<!-- SOAL 2 -->
 <div style="background:#f2f2f2; padding:20px; border-radius:10px;">
   <p>2. Sudut siku-siku besarnya?</p>
   <button onclick="jawab(true)">90°</button>
@@ -20,6 +22,16 @@
 </div>
 
 <br><br>
+
+<!-- HASIL -->
+<div id="hasil" style="
+font-size:18px;
+font-weight:bold;
+margin-top:20px;
+color:green;
+"></div>
+
+<br>
 
 <!-- TOMBOL NILAI -->
 <button onclick="lihatNilai()" style="
@@ -35,34 +47,40 @@ font-size: 16px;
 
 <br><br>
 
-<!-- TOMBOL KEMBALI -->
+<!-- KEMBALI -->
 <a href="index.html">
-  <button style="
-  padding: 12px 20px;
-  background: red;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  ">
-  ← Kembali
-  </button>
+<button style="
+padding: 12px 20px;
+background: red;
+color: white;
+border: none;
+border-radius: 10px;
+font-size: 16px;
+">
+← Kembali
+</button>
 </a>
 
 <script>
 let skor = 0;
 
 function jawab(benar) {
+  let hasil = document.getElementById("hasil");
+
   if (benar) {
     skor++;
-    alert("Benar 👍");
+    hasil.innerHTML = "✔ Benar 👍";
+    hasil.style.color = "green";
   } else {
-    alert("Salah ❌");
+    hasil.innerHTML = "✖ Salah ❌";
+    hasil.style.color = "red";
   }
 }
 
 function lihatNilai() {
-  alert("Skor kamu: " + skor + " / 2");
+  let hasil = document.getElementById("hasil");
+  hasil.innerHTML = "📊 Skor kamu: " + skor + " / 2";
+  hasil.style.color = "blue";
 }
 </script>
 
