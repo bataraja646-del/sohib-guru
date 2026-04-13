@@ -2,70 +2,69 @@
 <html>
 <head>
   <title>LKPD Sudut</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial;
-      padding: 20px;
-      background: #f4f4f4;
-    }
-    h1 {
-      text-align: center;
-    }
-    .soal {
-      background: white;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
-    }
-    button {
-      margin-top: 10px;
-      padding: 10px;
-      background: #3498db;
-      color: white;
-      border: none;
-      border-radius: 8px;
-    }
-  </style>
 </head>
-
-<body>
+<body style="font-family: Arial; text-align: center; padding: 20px;">
 
 <h1>📘 LKPD Sudut</h1>
 
-<div class="soal">
+<div style="background:#f2f2f2; padding:20px; border-radius:10px; margin-bottom:20px;">
   <p>1. Sudut yang besarnya kurang dari 90° disebut?</p>
-  <button onclick="cek('a')">Sudut Lancip</button>
-  <button onclick="cek('b')">Sudut Tumpul</button>
+  <button onclick="jawab(true)">Sudut Lancip</button>
+  <button onclick="jawab(false)">Sudut Tumpul</button>
 </div>
 
-<div class="soal">
+<div style="background:#f2f2f2; padding:20px; border-radius:10px;">
   <p>2. Sudut siku-siku besarnya?</p>
-  <button onclick="cek('a')">90°</button>
-  <button onclick="cek('b')">180°</button>
+  <button onclick="jawab(true)">90°</button>
+  <button onclick="jawab(false)">180°</button>
 </div>
+
+<br><br>
+
+<!-- TOMBOL NILAI -->
+<button onclick="lihatNilai()" style="
+padding: 12px 20px;
+background: green;
+color: white;
+border: none;
+border-radius: 10px;
+font-size: 16px;
+">
+📊 Lihat Nilai
+</button>
+
+<br><br>
+
+<!-- TOMBOL KEMBALI -->
+<a href="index.html">
+  <button style="
+  padding: 12px 20px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  ">
+  ← Kembali
+  </button>
+</a>
 
 <script>
-function cek(jawaban) {
-  if (jawaban === 'a') {
+let skor = 0;
+
+function jawab(benar) {
+  if (benar) {
+    skor++;
     alert("Benar 👍");
   } else {
     alert("Salah ❌");
   }
 }
+
+function lihatNilai() {
+  alert("Skor kamu: " + skor + " / 2");
+}
 </script>
-<br><br>
-<a href="index.html">
-  <button style="
-    padding: 12px 20px;
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-  ">
-    ← Kembali
-  </button>
-</a>
+
 </body>
 </html>
