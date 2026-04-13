@@ -3,35 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <title>Sohib Guru</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #0b1f2a;
+      color: white;
+    }
+
+    h1 {
+      color: #00c896;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #112f3d;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #00c896;
+      color: black;
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>SOHIB GURU</h1>
-  <h2>Pilih Kelas</h2>
+<h1>SOHIB GURU</h1>
 
-  <!-- data -->
-  <script src="data/data.js"></script>
+<div class="menu">
+  <div class="card">📘 Modul Ajar</div>
+  <div class="card">📝 LKPD Sudut</div>
+  <div class="card">📚 Materi</div>
+  <div class="card">📊 Penilaian</div>
+</div>
 
-  <script>
-    const data = sohibGuru;
+<h2>Pilih Kelas</h2>
 
-    const container = document.createElement("div");
+<!-- DATA -->
+<script src="data/data.js"></script>
 
-    data.kelas.forEach(k => {
-      const btn = document.createElement("button");
-      btn.innerText = k.nama;
+<script>
+const data = sohibGuru;
 
-      btn.onclick = function() {
-        localStorage.setItem("kelas", k.nama);
-        window.location.href = "semester.html";
-      };
+const container = document.createElement("div");
 
-      container.appendChild(btn);
-      container.appendChild(document.createElement("br"));
-    });
+data.kelas.forEach(k => {
+  const btn = document.createElement("button");
+  btn.innerText = k.nama;
 
-    document.body.appendChild(container);
-  </script>
+  btn.onclick = function() {
+    localStorage.setItem("kelas", k.nama);
+    window.location.href = "semester.html";
+  };
+
+  container.appendChild(btn);
+});
+
+document.body.appendChild(container);
+</script>
 
 </body>
 </html>
