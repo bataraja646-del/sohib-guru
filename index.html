@@ -78,7 +78,7 @@ data.kelas.forEach(k => {
 
   btn.onclick = function() {
     localStorage.setItem("kelas", k.nama);
-    alert("Pilih " + k.nama);
+  window.location.href = "semester.html";
   };
 
   container.appendChild(btn);
