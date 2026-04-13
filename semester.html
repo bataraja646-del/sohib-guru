@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pilih Semester</title>
+</head>
+<body>
+
+<h2>Pilih Semester</h2>
+
+<button onclick="pilih('Ganjil')">Semester Ganjil</button>
+<br><br>
+<button onclick="pilih('Genap')">Semester Genap</button>
+
+<script>
+function pilih(nama) {
+  localStorage.setItem("semester", nama);
+  alert("Pilih Semester " + nama);
+}
+</script>
+
+</body>
+</html>
