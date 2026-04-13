@@ -1,68 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LKPD Sudut</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LKPD Sudut</title>
 </head>
 
-<body style="font-family: Arial; text-align: center; padding: 20px; background:#f5f7fa;">
+<body style="font-family: Arial; text-align: center; padding: 10px; background:#f5f7fa;">
 
-<h1 style="font-size:32px;">📘 LKPD Sudut</h1>
+<h1 style="font-size:40px; margin-bottom:20px;">📘 LKPD Sudut</h1>
 
 <!-- SOAL 1 -->
-<div style="background:#ffffff; padding:25px; border-radius:15px; margin-bottom:20px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-  <p style="font-size:20px;">1. Sudut yang besarnya kurang dari 90° disebut?</p>
-  <button onclick="jawab(true,1)" style="padding:12px 18px; font-size:16px;">Sudut Lancip</button>
-  <button onclick="jawab(false,1)" style="padding:12px 18px; font-size:16px;">Sudut Tumpul</button>
+<div style="background:#ffffff; padding:30px; border-radius:20px; margin-bottom:25px;">
+  <p style="font-size:24px; font-weight:bold;">1. Sudut < 90° disebut?</p>
+
+  <br>
+
+  <button onclick="jawab(true,1)" style="
+  width:100%;
+  padding:18px;
+  font-size:20px;
+  margin-bottom:10px;
+  border-radius:12px;
+  ">
+  Sudut Lancip
+  </button>
+
+  <button onclick="jawab(false,1)" style="
+  width:100%;
+  padding:18px;
+  font-size:20px;
+  border-radius:12px;
+  ">
+  Sudut Tumpul
+  </button>
 </div>
 
 <!-- SOAL 2 -->
-<div style="background:#ffffff; padding:25px; border-radius:15px; box-shadow:0 2px 5px rgba(0,0,0,0.1);">
-  <p style="font-size:20px;">2. Sudut siku-siku besarnya?</p>
-  <button onclick="jawab(true,2)" style="padding:12px 18px; font-size:16px;">90°</button>
-  <button onclick="jawab(false,2)" style="padding:12px 18px; font-size:16px;">180°</button>
+<div style="background:#ffffff; padding:30px; border-radius:20px;">
+  <p style="font-size:24px; font-weight:bold;">2. Sudut siku-siku?</p>
+
+  <br>
+
+  <button onclick="jawab(true,2)" style="
+  width:100%;
+  padding:18px;
+  font-size:20px;
+  margin-bottom:10px;
+  border-radius:12px;
+  ">
+  90°
+  </button>
+
+  <button onclick="jawab(false,2)" style="
+  width:100%;
+  padding:18px;
+  font-size:20px;
+  border-radius:12px;
+  ">
+  180°
+  </button>
 </div>
 
-<br><br>
+<br>
 
 <!-- HASIL -->
 <div id="hasil" style="
-font-size:26px;
+font-size:30px;
 font-weight:bold;
 margin-top:30px;
 color:blue;
 background:#e6f0ff;
-padding:15px;
-border-radius:12px;
-display:inline-block;
-min-width:220px;
+padding:20px;
+border-radius:15px;
 ">
+📊 Skor kamu: 0 / 2
 </div>
 
-<br><br>
+<br>
 
 <!-- TOMBOL NILAI -->
 <button onclick="lihatNilai()" style="
-padding: 14px 22px;
+width:100%;
+padding:18px;
 background: green;
 color: white;
 border: none;
-border-radius: 12px;
-font-size: 18px;
+border-radius:15px;
+font-size:20px;
+margin-bottom:10px;
 ">
 📊 Lihat Nilai
 </button>
 
-<br><br>
-
 <!-- KEMBALI -->
 <a href="index.html">
 <button style="
-padding: 14px 22px;
+width:100%;
+padding:18px;
 background: red;
 color: white;
 border: none;
-border-radius: 12px;
-font-size: 18px;
+border-radius:15px;
+font-size:20px;
 ">
 ← Kembali
 </button>
@@ -74,8 +113,6 @@ let sudah1 = false;
 let sudah2 = false;
 
 function jawab(benar, soal) {
-  let hasil = document.getElementById("hasil");
-
   if ((soal === 1 && sudah1) || (soal === 2 && sudah2)) return;
 
   if (soal === 1) sudah1 = true;
@@ -83,18 +120,13 @@ function jawab(benar, soal) {
 
   if (benar) {
     skor++;
-    hasil.innerHTML = "✔ Benar 👍";
-    hasil.style.color = "green";
-  } else {
-    hasil.innerHTML = "✖ Salah ❌";
-    hasil.style.color = "red";
   }
+
+  document.getElementById("hasil").innerHTML = "📊 Skor kamu: " + skor + " / 2";
 }
 
 function lihatNilai() {
-  let hasil = document.getElementById("hasil");
-  hasil.innerHTML = "📊 Skor kamu: " + skor + " / 2";
-  hasil.style.color = "blue";
+  document.getElementById("hasil").innerHTML = "📊 Skor kamu: " + skor + " / 2";
 }
 </script>
 
