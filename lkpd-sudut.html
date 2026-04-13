@@ -3,6 +3,7 @@
 <head>
   <title>LKPD Sudut</title>
 </head>
+
 <body style="font-family: Arial; text-align: center; padding: 20px;">
 
 <h1>📘 LKPD Sudut</h1>
@@ -10,28 +11,34 @@
 <!-- SOAL 1 -->
 <div style="background:#f2f2f2; padding:20px; border-radius:10px; margin-bottom:20px;">
   <p>1. Sudut yang besarnya kurang dari 90° disebut?</p>
-  <button onclick="jawab(true)">Sudut Lancip</button>
-  <button onclick="jawab(false)">Sudut Tumpul</button>
+  <button onclick="jawab(true,1)">Sudut Lancip</button>
+  <button onclick="jawab(false,1)">Sudut Tumpul</button>
 </div>
 
 <!-- SOAL 2 -->
 <div style="background:#f2f2f2; padding:20px; border-radius:10px;">
   <p>2. Sudut siku-siku besarnya?</p>
-  <button onclick="jawab(true)">90°</button>
-  <button onclick="jawab(false)">180°</button>
+  <button onclick="jawab(true,2)">90°</button>
+  <button onclick="jawab(false,2)">180°</button>
 </div>
 
 <br><br>
 
 <!-- HASIL -->
 <div id="hasil" style="
-font-size:18px;
+font-size:28px;
 font-weight:bold;
-margin-top:20px;
-color:green;
-"></div>
+margin-top:30px;
+color:blue;
+background:#e6f0ff;
+padding:15px;
+border-radius:10px;
+display:inline-block;
+min-width:200px;
+">
+</div>
 
-<br>
+<br><br>
 
 <!-- TOMBOL NILAI -->
 <button onclick="lihatNilai()" style="
@@ -40,7 +47,7 @@ background: green;
 color: white;
 border: none;
 border-radius: 10px;
-font-size: 16px;
+font-size: 18px;
 ">
 📊 Lihat Nilai
 </button>
@@ -55,7 +62,7 @@ background: red;
 color: white;
 border: none;
 border-radius: 10px;
-font-size: 16px;
+font-size: 18px;
 ">
 ← Kembali
 </button>
@@ -63,9 +70,16 @@ font-size: 16px;
 
 <script>
 let skor = 0;
+let sudah1 = false;
+let sudah2 = false;
 
-function jawab(benar) {
+function jawab(benar, soal) {
   let hasil = document.getElementById("hasil");
+
+  if ((soal === 1 && sudah1) || (soal === 2 && sudah2)) return;
+
+  if (soal === 1) sudah1 = true;
+  if (soal === 2) sudah2 = true;
 
   if (benar) {
     skor++;
