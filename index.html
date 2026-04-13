@@ -1,88 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+  <meta charset="UTF-8">
   <title>Sohib Guru</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: linear-gradient(#0a2540, #0d3b66);
-      text-align: center;
-      color: white;
-    }
-
-    h1 {
-      margin-top: 30px;
-      color: #00ffcc;
-    }
-
-    .menu {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      padding: 20px;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .card {
-      background: #123456;
-      padding: 20px;
-      border-radius: 15px;
-      color: white;
-      font-size: 16px;
-    }
-  </style>
 </head>
-
 <body>
 
   <h1>SOHIB GURU</h1>
+  <h2>Pilih Kelas</h2>
 
-  <div class="menu">
-    <a href="modul.html">
-      <div class="card">📘 Modul Ajar</div>
-    </a>
-
-    <a href="lkpd-sudut.html">
-      <div class="card">📝 LKPD Sudut</div>
-    </a>
-
-    <a href="materi-sudut.html">
-      <div class="card">📚 Materi</div>
-    </a>
-
-    <a href="penilaian.html">
-      <div class="card">📊 Penilaian</div>
-    </a>
-  </div>
-
+  <!-- data -->
   <script src="data/data.js"></script>
 
-<script>
-const data = sohibGuru;
+  <script>
+    const data = sohibGuru;
 
-const container = document.createElement("div");
+    const container = document.createElement("div");
 
-data.kelas.forEach(k => {
-  const btn = document.createElement("button");
-  btn.innerText = k.nama;
+    data.kelas.forEach(k => {
+      const btn = document.createElement("button");
+      btn.innerText = k.nama;
 
-  btn.onclick = function() {
-    localStorage.setItem("kelas", k.nama);
-    alert("Kelas dipilih: " + k.nama);
-  };
+      btn.onclick = function() {
+        localStorage.setItem("kelas", k.nama);
+        window.location.href = "semester.html";
+      };
 
-  container.appendChild(btn);
-  container.appendChild(document.createElement("br"));
-});
+      container.appendChild(btn);
+      container.appendChild(document.createElement("br"));
+    });
 
-document.body.appendChild(container);
-</script>
-  
+    document.body.appendChild(container);
+  </script>
+
 </body>
 </html>
